@@ -151,6 +151,126 @@ SELECT * FROM Dept;
 
 ---
 
+
+````md
+# MCA DBMS Notes – Course & Student Marks (MySQL)
+
+## 1. Course Table (DDL)
+
+### Create `Course` Table
+```sql
+CREATE TABLE Course (
+    Course_ID INT PRIMARY KEY,
+    Course_Name VARCHAR(50),
+    Program_ID INT,
+    Credit INT,
+    Semester INT,
+    Internal_Mark INT,
+    External_Mark INT,
+    Course_Type VARCHAR(20)
+);
+````
+
+### View Table Structure
+
+```sql
+DESC Course;
 ```
+
+---
+
+## 2. Student_Mark Table (DDL with Foreign Key)
+
+### Create `Student_Mark` Table
+
+```sql
+CREATE TABLE Student_Mark (
+    Reg_No INT PRIMARY KEY,
+    Course_ID INT,
+    Program_ID INT,
+    Student_Internal INT,
+    Student_External INT,
+    FOREIGN KEY (Course_ID) REFERENCES Course(Course_ID)
+);
+```
+
+### View Table Structure
+
+```sql
+DESC Student_Mark;
+```
+
+---
+
+## 3. Data Insertion (DML)
+
+### Insert Records into `Course`
+
+```sql
+INSERT INTO Course VALUES
+(501, 'DBMS', 10, 4, 3, 30, 70, 'core'),
+(502, 'Network', 10, 4, 3, 30, 70, 'elective'),
+(503, 'web', 11, 3, 5, 35, 72, 'core');
+```
+
+### Insert Records into `Student_Mark`
+
+```sql
+INSERT INTO Student_Mark VALUES
+(202401, 501, 10, 25, 65),
+(202402, 501, 10, 28, 60),
+(202403, 501, 10, 27, 61);
+```
+
+---
+
+## 4. Data Retrieval (DQL)
+
+### Display Course Table
+
+```sql
+SELECT * FROM Course;
+```
+
+### Display Student Marks
+
+```sql
+SELECT * FROM Student_Mark;
+```
+
+---
+
+## 5. MCA DBMS Syllabus Mapping
+
+### DDL Commands
+
+* `CREATE TABLE`
+* `PRIMARY KEY`
+* `FOREIGN KEY`
+* `DESC`
+
+### DML Commands
+
+* `INSERT INTO`
+
+### DQL Commands
+
+* `SELECT`
+
+---
+
+## 6. Key Concepts Covered (Exam Oriented)
+
+* Entity creation using `CREATE TABLE`
+* Primary Key constraint
+* Foreign Key constraint (Referential Integrity)
+* One-to-Many relationship (Course → Student_Mark)
+* Insertion and retrieval of relational data
+
+---
+
+```
+
+
 
 
